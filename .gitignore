@@ -1,0 +1,12 @@
+# Privacy: employee/staff details must NEVER be committed to this public repo.
+# These files live only on the IT admin's local laptop in c:\Projects\Signatures\.
+**/employees.json
+**/employees.csv
+**/employees-*.json
+**/employees-*.csv
+
+# Local working files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
