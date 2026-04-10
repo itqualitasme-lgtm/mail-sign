@@ -32,6 +32,26 @@ exactly how it will look in an email.
 
 ## Step 3 — Install in your email client
 
+### Zoho Mail (web — mail.zoho.com) ★ recommended for our org
+
+1. Open `signature.html` in your browser, **Ctrl + A**, **Ctrl + C**.
+2. Log into Zoho Mail → click the **Settings gear** (top right) → **Settings**.
+3. In the left sidebar, click **Signatures**.
+4. Click **Add** (or the **+** button) to create a new signature.
+5. Give it the name `Qualitas` and select the email account it applies to.
+6. Click into the large editor area, then click the **`<>` Source** / **HTML** button in the toolbar (it switches the editor from rich-text to raw HTML mode — this step is important, otherwise pasting will mangle the layout).
+7. **Ctrl + V** to paste the signature HTML.
+8. Click the **`<>` Source** button again to switch back to preview mode and check the layout looks right.
+9. Under **Signature Settings**, set the new `Qualitas` signature as the default for the account.
+10. Click **Save**.
+11. Open a new compose window — your signature should appear automatically.
+
+> **For org-wide deployment:** if you're an admin and want to push this to every
+> user without each person installing it manually, see the *Zoho Mail Admin
+> Console → Mail Settings → Organization Signature* feature instead. This applies
+> the signature server-side to every outbound message and pulls user details
+> (name, title, mobile) from the Zoho directory automatically.
+
 ### Outlook (desktop — Windows)
 
 1. Open `signature.html` in your browser.

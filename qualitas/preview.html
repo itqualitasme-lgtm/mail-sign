@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Qualitas Signature — Live Preview</title>
+  <style>
+    body {
+      font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+      background: #f4f4f7;
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 18px;
+      margin: 0 0 6px;
+    }
+    .hint {
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+    .email {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 24px 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin-bottom: 24px;
+    }
+    .email .body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.5;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #e5e5e5;
+      margin-bottom: 16px;
+    }
+    .dark-mode {
+      background: #1e1e1e;
+      border-color: #333;
+    }
+    .dark-mode .body {
+      color: #ddd;
+      border-bottom-color: #444;
+    }
+    .label {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #888;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Qualitas Email Signature — Browser Preview</h1>
+    <p class="hint">
+      This is roughly how the signature will appear in an email body.
+      Real email clients may render fonts/spacing slightly differently —
+      Outlook in particular has its quirks. Always do a real send-test
+      before rolling out to staff.
+    </p>
+
+    <!-- Light mode preview -->
+    <div class="email">
+      <div class="label">☀ Light mode preview</div>
+      <div class="body">
+        Hello,<br><br>
+        Please find attached the test report for sample QM-2026-04-001.<br>
+        Let me know if you need any clarification.<br><br>
+        Best regards,
+      </div>
+
+      <!-- ============== SIGNATURE STARTS ============== -->
+      <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+        <tr>
+          <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+            <img src="https://www.qualitasme.com/logo.png"
+                 alt="Qualitas Material Testing Laboratories"
+                 width="150"
+                 style="display:block; border:0; outline:none; text-decoration:none;" />
+          </td>
+          <td style="padding: 0 0 0 18px; vertical-align: top;">
+            <div style="font-size: 15px; font-weight: bold; color: #000000;">
+              Seena Suresh
+            </div>
+            <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">
+              Assistant Lab Manager
+            </div>
+            <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
+              <tr>
+                <td style="padding: 1px 6px 1px 0; color:#888;">Mob</td>
+                <td style="padding: 1px 0;">
+                  <a href="tel:+971586022319" style="color:#333; text-decoration:none;">+971 58 602 2319</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 1px 6px 1px 0; color:#888;">Email</td>
+                <td style="padding: 1px 0;">
+                  <a href="mailto:labmanager.auh@qualitasme.com" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 1px 6px 1px 0; color:#888;">Web</td>
+                <td style="padding: 1px 0;">
+                  <a href="https://www.qualitasme.com" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 1px 6px 1px 0; color:#888;">Office</td>
+                <td style="padding: 1px 0;">Abu Dhabi&nbsp;|&nbsp;Dubai</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding: 12px 0 0 0;">
+            <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
+              <tr>
+                <td style="vertical-align: middle; padding-right: 8px;">
+                  <img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif"
+                       alt="UAE"
+                       width="28"
+                       style="display:inline-block; border:0; vertical-align:middle;" />
+                </td>
+                <td style="vertical-align: middle;">
+                  <span style="font-style: italic; color: #c8102e; font-size: 11px;">
+                    Proudly standing with the UAE — our home of growth, resilience and unity.
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">
+            ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC
+          </td>
+        </tr>
+      </table>
+      <!-- ============== SIGNATURE ENDS ============== -->
+    </div>
+
+    <!-- Dark mode preview -->
+    <div class="email dark-mode">
+      <div class="label">🌙 Dark mode preview (recipient on dark theme)</div>
+      <div class="body">
+        Hello,<br><br>
+        Please find attached the test report for sample QM-2026-04-001.<br>
+        Let me know if you need any clarification.<br><br>
+        Best regards,
+      </div>
+
+      <!-- Identical signature, dropped into a dark background -->
+      <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+        <tr>
+          <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+            <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
+          </td>
+          <td style="padding: 0 0 0 18px; vertical-align: top;">
+            <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
+            <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
+            <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
+              <tr><td style="padding: 1px 6px 1px 0; color:#888;">Mob</td><td>+971 58 602 2319</td></tr>
+              <tr><td style="padding: 1px 6px 1px 0; color:#888;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+              <tr><td style="padding: 1px 6px 1px 0; color:#888;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
+              <tr><td style="padding: 1px 6px 1px 0; color:#888;">Office</td><td>Abu Dhabi&nbsp;|&nbsp;Dubai</td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding: 12px 0 0 0;">
+            <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #444; padding-top: 8px; width:100%;">
+              <tr>
+                <td style="vertical-align: middle; padding-right: 8px;">
+                  <img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" />
+                </td>
+                <td style="vertical-align: middle;">
+                  <span style="font-style: italic; color: #c8102e; font-size: 11px;">
+                    Proudly standing with the UAE — our home of growth, resilience and unity.
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <p class="hint">
+      Notice how on the dark background, the dark grey body text becomes
+      hard to read. This is a known limitation of HTML email signatures —
+      we can't reliably override the recipient's dark mode. The red brand
+      color, logo, and UAE banner all stay readable, which is what matters most.
+    </p>
+  </div>
+</body>
+</html>
