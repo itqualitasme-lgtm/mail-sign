@@ -28,64 +28,57 @@
       color: #888; letter-spacing: 0.5px; margin-bottom: 14px;
     }
     .email.dark .label { color: #999; }
-    .body {
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px; line-height: 1.5;
-      padding-bottom: 16px;
-      border-bottom: 1px dashed #e5e5e5;
-      margin-bottom: 16px;
-    }
-    .email.dark .body { border-bottom-color: #444; color: #ddd; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Qualitas Signature — Preview</h1>
     <p class="intro">
-      Final design (Variant A — white card with red top stripe).
-      Below: how it looks in a light-mode email and a dark-mode email.
-      The white card sits on top of whatever the recipient's theme is,
-      so the signature stays readable everywhere.
+      How the signature looks when auto-inserted into a Reply or new Compose.
+      Letter template (Dear / blank gap / Best regards) + Qualitas white card.
+      Below: light mode email and dark mode email previews.
     </p>
 
     <!-- ===== Light mode preview ===== -->
     <div class="email light">
       <div class="label">☀ Light mode email</div>
-      <div class="body">
-        Hello,<br><br>
-        Please find attached the test report for sample QM-2026-04-001.<br>
-        Let me know if you need any clarification.<br><br>
-        Best regards,
+
+      <div style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #333333;">
+        <div>Dear&nbsp;,</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>Best regards,</div>
+        <div>&nbsp;</div>
       </div>
 
-      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
-        <tr><td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 20px 14px 20px;">
-          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
+        <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); padding:16px 20px 14px 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
             <tr>
-              <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
-                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas Material Testing Laboratories" width="150" style="display:block; border:0;" />
+              <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
               </td>
-              <td style="padding: 0 0 0 18px; vertical-align: top;">
+              <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 0 0 18px; vertical-align: top;">
                 <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
                 <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
-                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;"><a href="tel:+971586022319" style="color:#333333; text-decoration:none;">+971 58 602 2319</a></td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;"><a href="tel:+97125552928" style="color:#333333; text-decoration:none;">+971 2 555 2928</a></td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;"><a href="tel:+97148858858" style="color:#333333; text-decoration:none;">+971 4 885 8858</a></td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="mailto:labmanager.auh@qualitasme.com" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="https://www.qualitasme.com" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-size: 12px; color: #333333;">
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;"><a href="tel:+971586022319" style="color:#333333; text-decoration:none;">+971 58 602 2319</a></td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;"><a href="tel:+97125552928" style="color:#333333; text-decoration:none;">+971 2 555 2928</a></td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;"><a href="tel:+97148858858" style="color:#333333; text-decoration:none;">+971 4 885 8858</a></td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td bgcolor="#ffffff" style="background-color:#ffffff !important;"><a href="mailto:labmanager.auh@qualitasme.com" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td bgcolor="#ffffff" style="background-color:#ffffff !important;"><a href="https://www.qualitasme.com" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
                 </table>
               </td>
             </tr>
-            <tr><td colspan="2" style="padding: 12px 0 0 0;">
-              <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
+            <tr><td colspan="2" bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 12px 0 0 0;">
+              <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
                 <tr>
-                  <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
-                  <td style="vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+                  <td bgcolor="#ffffff" style="background-color:#ffffff !important; vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+                  <td bgcolor="#ffffff" style="background-color:#ffffff !important; vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
                 </tr>
               </table>
             </td></tr>
-            <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
+            <tr><td colspan="2" bgcolor="#ffffff" style="background-color:#ffffff !important; padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
           </table>
         </td></tr>
       </table>
@@ -94,41 +87,43 @@
     <!-- ===== Dark mode preview ===== -->
     <div class="email dark">
       <div class="label">🌙 Dark mode email</div>
-      <div class="body">
-        Hello,<br><br>
-        Please find attached the test report for sample QM-2026-04-001.<br>
-        Let me know if you need any clarification.<br><br>
-        Best regards,
+
+      <div style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #ddd;">
+        <div>Dear&nbsp;,</div>
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <div>Best regards,</div>
+        <div>&nbsp;</div>
       </div>
 
-      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
-        <tr><td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 20px 14px 20px;">
-          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
+        <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); padding:16px 20px 14px 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
             <tr>
-              <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
-                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas Material Testing Laboratories" width="150" style="display:block; border:0;" />
+              <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
               </td>
-              <td style="padding: 0 0 0 18px; vertical-align: top;">
+              <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 0 0 18px; vertical-align: top;">
                 <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
                 <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
-                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;">+971 58 602 2319</td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;">+971 2 555 2928</td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;">+971 4 885 8858</td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
-                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-size: 12px; color: #333333;">
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;">+971 58 602 2319</td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;">+971 2 555 2928</td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;">+971 4 885 8858</td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td bgcolor="#ffffff" style="background-color:#ffffff !important;"><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td bgcolor="#ffffff" style="background-color:#ffffff !important;"><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
                 </table>
               </td>
             </tr>
-            <tr><td colspan="2" style="padding: 12px 0 0 0;">
-              <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
+            <tr><td colspan="2" bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 12px 0 0 0;">
+              <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
                 <tr>
-                  <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
-                  <td style="vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+                  <td bgcolor="#ffffff" style="background-color:#ffffff !important; vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+                  <td bgcolor="#ffffff" style="background-color:#ffffff !important; vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
                 </tr>
               </table>
             </td></tr>
-            <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
+            <tr><td colspan="2" bgcolor="#ffffff" style="background-color:#ffffff !important; padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
           </table>
         </td></tr>
       </table>
