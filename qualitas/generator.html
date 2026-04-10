@@ -50,10 +50,14 @@
 
   <h1>Qualitas Email Signature Generator</h1>
   <p class="hint">
-    Add staff details below. For each user, click <strong>Copy Rich</strong> to copy their full signature
-    (then paste directly into Zoho Mail's editor in normal mode), or <strong>Copy HTML</strong> for the
-    raw source code (paste into Zoho's <code>&lt;&gt; Source</code> mode). The list auto-saves to your
-    browser, so you can come back later. Works offline — no data leaves your computer.
+    Add staff details below. For each user, click <strong>Copy</strong> to copy their full signature
+    (paste directly into Zoho Mail's editor), or <strong>HTML</strong> for the raw source.
+    The list auto-saves to your browser. For real persistence across devices,
+    use <strong>Save to JSON file</strong> in section 4 — saves to
+    <code>employees.json</code> which you store at
+    <code>c:\Projects\Signatures\qualitas\employees.json</code>.
+    Email is the unique key — re-importing the same email updates the existing entry.
+    Works offline — no data leaves your computer.
   </p>
 
   <!-- ============ Add user form ============ -->
@@ -96,9 +100,25 @@
     </div>
   </section>
 
+  <!-- ============ Persistent storage ============ -->
+  <section>
+    <h2>4. Save / Load — File Storage (recommended)</h2>
+    <p class="hint">
+      Browser auto-save (<strong>localStorage</strong>) keeps your list while you work,
+      but it lives in this one browser only. For real persistence — across devices,
+      across browser resets — save to a JSON file. The recommended location is
+      <code>c:\Projects\Signatures\qualitas\employees.json</code>. Email is the
+      unique key — re-importing the same email updates the existing entry instead of duplicating.
+    </p>
+    <button class="primary" onclick="saveToJSONFile()">💾 Save to JSON file</button>
+    <button onclick="document.getElementById('json_file_input').click()">📂 Load JSON file</button>
+    <input type="file" id="json_file_input" accept=".json,application/json" style="display:none" onchange="loadFromJSONFile(event)" />
+    <span id="storage_status" style="font-size: 11px; color: #888; margin-left: 10px;"></span>
+  </section>
+
   <!-- ============ Bulk actions ============ -->
   <section>
-    <h2>4. Bulk Operations</h2>
+    <h2>5. CSV Bulk Operations</h2>
     <button onclick="exportCSV()">⬇ Export to CSV</button>
     <button onclick="document.getElementById('csv_input').focus()">⬆ Import from CSV</button>
     <button class="danger" onclick="clearAllUsers()">🗑 Clear All Users</button>
@@ -108,6 +128,7 @@
       <p class="hint" style="margin: 8px 0;">
         Format: header row first, then one user per line.
         Columns: <code>name,designation,mobile,email</code> (in that order, comma-separated).
+        Re-importing the same email updates the existing entry.
       </p>
       <textarea id="csv_input" placeholder="name,designation,mobile,email
 Abdul Rasak,IT Administrator,+971 50 967 2231,it.admin@qualitasme.com
@@ -254,6 +275,20 @@ function addUserFromForm() {
 
   if (!name || !email) {
     toast('Name and Email are required');
+    return;
+  }
+
+  // Email is the unique key — check for existing entry
+  const existing = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+  if (existing) {
+    existing.name = name;
+    existing.designation = designation;
+    existing.mobile = mobile;
+    existing.email = email;
+    saveUsers();
+    renderUserList();
+    clearForm();
+    toast(`Updated ${name} (existing email)`);
     return;
   }
 
@@ -412,6 +447,7 @@ function importCSV() {
   // Skip header (first line). Parse rest.
   const dataLines = lines.slice(1);
   let added = 0;
+  let updated = 0;
   let skipped = 0;
 
   for (const line of dataLines) {
@@ -421,17 +457,30 @@ function importCSV() {
       skipped++;
       continue;
     }
-    users.push({
-      id: 'u_' + Date.now() + '_' + Math.floor(Math.random() * 100000),
-      name, designation: designation || '', mobile: mobile || '', email
-    });
-    added++;
+    // Email is unique key — update if exists, add if new
+    const existing = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (existing) {
+      existing.name = name;
+      existing.designation = designation || '';
+      existing.mobile = mobile || '';
+      updated++;
+    } else {
+      users.push({
+        id: 'u_' + Date.now() + '_' + Math.floor(Math.random() * 100000),
+        name, designation: designation || '', mobile: mobile || '', email
+      });
+      added++;
+    }
   }
 
   saveUsers();
   renderUserList();
   document.getElementById('csv_input').value = '';
-  toast(`Added ${added} users${skipped ? ` (${skipped} skipped — missing name/email)` : ''}`);
+  const parts = [];
+  if (added) parts.push(`${added} added`);
+  if (updated) parts.push(`${updated} updated`);
+  if (skipped) parts.push(`${skipped} skipped`);
+  toast(parts.join(', ') || 'No changes');
 }
 
 function exportCSV() {
@@ -464,10 +513,121 @@ function clearAllUsers() {
 }
 
 // ============================================================
+//  JSON file save / load (persistent across browsers/devices)
+// ============================================================
+function saveToJSONFile() {
+  const data = {
+    company: 'Qualitas Material Testing Laboratories',
+    domain: 'qualitasme.com',
+    lastUpdated: new Date().toISOString().slice(0, 10),
+    schema: 'email-keyed',
+    users: users.map(u => ({
+      email: u.email,
+      name: u.name,
+      designation: u.designation || '',
+      mobile: u.mobile || '',
+      department: u.department || '',
+      notes: u.notes || ''
+    }))
+  };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'employees.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  updateStorageStatus(`Saved ${users.length} users to employees.json — move it to c:\\Projects\\Signatures\\qualitas\\`);
+  toast(`Downloaded employees.json with ${users.length} users`);
+}
+
+function loadFromJSONFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      const incoming = Array.isArray(data) ? data : (data.users || []);
+
+      if (!Array.isArray(incoming)) {
+        throw new Error('JSON file does not contain a users array');
+      }
+
+      // Ask: merge or replace?
+      let mode = 'merge';
+      if (users.length > 0) {
+        mode = confirm(
+          `Loading ${incoming.length} users from file.\n\n` +
+          `OK = MERGE (update existing by email, add new)\n` +
+          `Cancel = REPLACE (clear current ${users.length} users first)`
+        ) ? 'merge' : 'replace';
+      }
+
+      if (mode === 'replace') {
+        users = [];
+      }
+
+      let added = 0;
+      let updated = 0;
+      for (const u of incoming) {
+        if (!u.email) continue;
+        const existing = users.find(x => x.email.toLowerCase() === u.email.toLowerCase());
+        if (existing) {
+          existing.name = u.name || existing.name;
+          existing.designation = u.designation || existing.designation;
+          existing.mobile = u.mobile || existing.mobile;
+          existing.department = u.department || '';
+          existing.notes = u.notes || '';
+          updated++;
+        } else {
+          users.push({
+            id: 'u_' + Date.now() + '_' + Math.floor(Math.random() * 100000),
+            email: u.email,
+            name: u.name || '',
+            designation: u.designation || '',
+            mobile: u.mobile || '',
+            department: u.department || '',
+            notes: u.notes || ''
+          });
+          added++;
+        }
+      }
+
+      saveUsers();
+      renderUserList();
+      const parts = [];
+      if (added) parts.push(`${added} added`);
+      if (updated) parts.push(`${updated} updated`);
+      updateStorageStatus(`Loaded from ${file.name}: ${parts.join(', ')}`);
+      toast(`Loaded: ${parts.join(', ')}`);
+    } catch (err) {
+      toast(`Error loading file: ${err.message}`);
+      console.error(err);
+    }
+    // Reset the file input so the same file can be loaded again
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+function updateStorageStatus(msg) {
+  const el = document.getElementById('storage_status');
+  if (el) el.textContent = msg;
+}
+
+// ============================================================
 //  Init
 // ============================================================
 renderUserList();
 renderPreview();
+if (users.length > 0) {
+  updateStorageStatus(`${users.length} users loaded from browser storage`);
+} else {
+  updateStorageStatus('No users yet — add some above, or click "Load JSON file" to import');
+}
 
 // Enter key in form fields adds the user
 document.querySelectorAll('#f_name, #f_designation, #f_mobile, #f_email').forEach(el => {
