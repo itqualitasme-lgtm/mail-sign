@@ -35,6 +35,20 @@
     tr.selected td { background: #fef0f2; }
     .actions-cell { white-space: nowrap; }
     .empty-state { text-align: center; color: #999; padding: 30px 20px; font-size: 13px; }
+    /* Incomplete row — missing name, designation, or mobile */
+    tr.incomplete td { background: #fff5f5; opacity: 0.55; }
+    tr.incomplete:hover td { opacity: 0.85; background: #ffe8e8; }
+    tr.incomplete.selected td { opacity: 1; background: #fde0e0; }
+    .missing-badge {
+      display: inline-block; font-size: 10px; padding: 1px 6px; margin-left: 6px;
+      border-radius: 3px; background: #ffe5e5; color: #c8102e; border: 1px solid #f5c0c0;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .ready-badge {
+      display: inline-block; font-size: 10px; padding: 1px 6px; margin-left: 6px;
+      border-radius: 3px; background: #e6f4ea; color: #1e7e34; border: 1px solid #b6dfc2;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px;
+    }
     .preview-frame { background: #f4f4f7; padding: 20px; border-radius: 4px; min-height: 100px; }
     details { margin-top: 12px; }
     summary { cursor: pointer; font-size: 12px; color: #666; padding: 4px 0; }
@@ -162,7 +176,7 @@ const TEMPLATE = `<!--[if mso]>
 <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); color-scheme:light only; supported-color-schemes:light; border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
   <tr>
     <td bgcolor="#ffffff" style="background-color:#ffffff !important; background-image:linear-gradient(#ffffff,#ffffff); padding:16px 20px 14px 20px;">
-      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; border-collapse:collapse; border-spacing:0; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.25;">
         <tr>
           <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
             <img src="https://www.qualitasme.com/logo.png" alt="Qualitas Material Testing Laboratories" width="150" style="display:block; border:0;" />
@@ -170,7 +184,7 @@ const TEMPLATE = `<!--[if mso]>
           <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding: 0 0 0 18px; vertical-align: top;">
             <div style="font-size: 15px; font-weight: bold; color: #000000;">{{NAME}}</div>
             <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">{{DESIGNATION}}</div>
-            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; font-size: 12px; color: #333333;">
+            <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff !important; border-collapse:collapse; border-spacing:0; font-size: 12px; line-height:1.25; color: #333333;">
               <tr>
                 <td bgcolor="#ffffff" style="background-color:#ffffff !important; padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td>
                 <td bgcolor="#ffffff" style="background-color:#ffffff !important; color:#333333;"><a href="tel:{{MOBILE_TEL}}" style="color:#333333; text-decoration:none;">{{MOBILE}}</a></td>
@@ -381,34 +395,63 @@ async function copyHTMLSource(id) {
 // ============================================================
 //  Rendering
 // ============================================================
+function isComplete(u) {
+  return !!(u.name && u.name.trim() && u.designation && u.designation.trim() && u.mobile && u.mobile.trim());
+}
+
+function missingFields(u) {
+  const missing = [];
+  if (!u.name || !u.name.trim()) missing.push('name');
+  if (!u.designation || !u.designation.trim()) missing.push('designation');
+  if (!u.mobile || !u.mobile.trim()) missing.push('mobile');
+  return missing;
+}
+
 function renderUserList() {
   const tbody = document.getElementById('users_tbody');
   const count = document.getElementById('user_count');
   const empty = document.getElementById('empty_state');
-  count.textContent = users.length;
 
-  if (users.length === 0) {
+  // Sort: complete first, then incomplete
+  const sorted = [...users].sort((a, b) => {
+    const ac = isComplete(a), bc = isComplete(b);
+    if (ac !== bc) return ac ? -1 : 1;
+    return (a.name || '').localeCompare(b.name || '');
+  });
+
+  const completeCount = sorted.filter(isComplete).length;
+  count.textContent = `${sorted.length} total — ${completeCount} ready, ${sorted.length - completeCount} incomplete`;
+
+  if (sorted.length === 0) {
     tbody.innerHTML = '';
     empty.style.display = 'block';
     return;
   }
 
   empty.style.display = 'none';
-  tbody.innerHTML = users.map(u => `
-    <tr class="${u.id === selectedId ? 'selected' : ''}">
-      <td><strong>${escapeHtml(u.name)}</strong></td>
+  tbody.innerHTML = sorted.map(u => {
+    const complete = isComplete(u);
+    const missing = missingFields(u);
+    const rowClass = (complete ? '' : 'incomplete ') + (u.id === selectedId ? 'selected' : '');
+    const statusBadge = complete
+      ? '<span class="ready-badge">READY</span>'
+      : '<span class="missing-badge">MISSING: ' + missing.join(', ') + '</span>';
+    return `
+    <tr class="${rowClass.trim()}">
+      <td><strong>${escapeHtml(u.name || '(no name)')}</strong>${statusBadge}</td>
       <td>${escapeHtml(u.designation || '—')}</td>
       <td>${escapeHtml(u.mobile || '—')}</td>
       <td>${escapeHtml(u.email)}</td>
       <td class="actions-cell">
         <button class="tiny" onclick="selectUser('${u.id}')">Preview</button>
-        <button class="tiny primary" onclick="copyRichText('${u.id}')">Copy</button>
-        <button class="tiny" onclick="copyHTMLSource('${u.id}')">HTML</button>
+        <button class="tiny primary" onclick="copyRichText('${u.id}')"${complete ? '' : ' disabled title="Fill missing fields first"'}>Copy</button>
+        <button class="tiny" onclick="copyHTMLSource('${u.id}')"${complete ? '' : ' disabled title="Fill missing fields first"'}>HTML</button>
         <button class="tiny" onclick="editUser('${u.id}')">Edit</button>
         <button class="tiny danger" onclick="deleteUser('${u.id}')">×</button>
       </td>
     </tr>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function renderPreview() {
