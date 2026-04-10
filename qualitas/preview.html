@@ -2,194 +2,269 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Qualitas Signature — Live Preview</title>
+  <title>Qualitas Signature — Dark Mode Variants</title>
   <style>
     body {
       font-family: -apple-system, Segoe UI, Roboto, sans-serif;
-      background: #f4f4f7;
+      background: #1e1e1e;
       margin: 0;
       padding: 30px;
-      color: #333;
+      color: #ddd;
     }
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    h1 {
-      font-size: 18px;
-      margin: 0 0 6px;
-    }
-    .hint {
-      font-size: 12px;
-      color: #777;
-      margin-bottom: 20px;
-    }
-    .email {
-      background: #fff;
-      border: 1px solid #ddd;
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 22px; margin: 0 0 6px; color: #fff; }
+    .intro { color: #aaa; font-size: 13px; margin-bottom: 30px; line-height: 1.6; }
+    .card {
+      background: #1e1e1e;
+      border: 1px solid #333;
       border-radius: 6px;
       padding: 24px 28px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-      margin-bottom: 24px;
+      margin-bottom: 30px;
     }
-    .email .body {
+    .card-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .card-sub {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    .body {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 13px;
-      color: #333;
+      color: #ddd;
       line-height: 1.5;
       padding-bottom: 16px;
-      border-bottom: 1px dashed #e5e5e5;
-      margin-bottom: 16px;
+      border-bottom: 1px dashed #444;
+      margin-bottom: 18px;
     }
-    .dark-mode {
-      background: #1e1e1e;
-      border-color: #333;
-    }
-    .dark-mode .body {
-      color: #ddd;
-      border-bottom-color: #444;
-    }
-    .label {
+    .pros, .cons {
       font-size: 11px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #888;
-      letter-spacing: 0.5px;
-      margin-bottom: 8px;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 4px;
     }
+    .pros { background: #1a3b1a; color: #9fdc9f; border-left: 3px solid #4caf50; }
+    .cons { background: #3b1a1a; color: #ed8a8a; border-left: 3px solid #f44336; margin-top: 6px; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Qualitas Email Signature — Browser Preview</h1>
-    <p class="hint">
-      This is roughly how the signature will appear in an email body.
-      Real email clients may render fonts/spacing slightly differently —
-      Outlook in particular has its quirks. Always do a real send-test
-      before rolling out to staff.
+    <h1>Qualitas Signature — Dark Mode Variants</h1>
+    <p class="intro">
+      Four approaches to handling dark mode email clients, each with trade-offs.
+      Compare the rendering, then tell me which one you want as the official version.
+      All four use the same content (name, contact info, UAE banner) — only the
+      visual treatment differs.
     </p>
 
-    <!-- Light mode preview -->
-    <div class="email">
-      <div class="label">☀ Light mode preview</div>
+    <!-- ============================================================ -->
+    <!-- VARIANT A: White card (current v3)                            -->
+    <!-- ============================================================ -->
+    <div class="card">
+      <div class="card-title">Variant A — White card (current v3)</div>
+      <div class="card-sub">
+        Pure white background, grey border, red top stripe.
+        Industry standard for email signatures. Always readable.
+      </div>
       <div class="body">
-        Hello,<br><br>
-        Please find attached the test report for sample QM-2026-04-001.<br>
-        Let me know if you need any clarification.<br><br>
         Best regards,
       </div>
 
-      <!-- ============== SIGNATURE STARTS (v2 — white card) ============== -->
       <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
-        <tr>
-          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 20px 14px 20px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
-              <tr>
-                <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
-                  <img src="https://www.qualitasme.com/logo.png" alt="Qualitas Material Testing Laboratories" width="150" style="display:block; border:0;" />
-                </td>
-                <td style="padding: 0 0 0 18px; vertical-align: top;">
-                  <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
-                  <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
-                  <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;"><a href="tel:+971586022319" style="color:#333333; text-decoration:none;">+971 58 602 2319</a></td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;"><a href="tel:+97125551234" style="color:#333333; text-decoration:none;">+971 2 555 1234</a></td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;"><a href="tel:+97144445678" style="color:#333333; text-decoration:none;">+971 4 444 5678</a></td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="mailto:labmanager.auh@qualitasme.com" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="https://www.qualitasme.com" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding: 12px 0 0 0;">
-                  <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
-                    <tr>
-                      <td style="vertical-align: middle; padding-right: 8px;">
-                        <img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" />
-                      </td>
-                      <td style="vertical-align: middle;">
-                        <span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">
-                  ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+        <tr><td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 20px 14px 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+            <tr>
+              <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
+              </td>
+              <td style="padding: 0 0 0 18px; vertical-align: top;">
+                <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
+                <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
+                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;">+971 58 602 2319</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;">+971 2 555 1234</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;">+971 4 444 5678</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr><td colspan="2" style="padding: 12px 0 0 0;">
+              <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
+                <tr>
+                  <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+                  <td style="vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
+          </table>
+        </td></tr>
       </table>
-      <!-- ============== SIGNATURE ENDS ============== -->
+
+      <div class="pros">PROS — Maximum readability everywhere. Works in 95%+ of email clients. Brand colors stay accurate. Industry standard.</div>
+      <div class="cons">CONS — Pure white can feel harsh against dark backgrounds. Looks "stuck on" rather than blended.</div>
     </div>
 
-    <!-- Dark mode preview -->
-    <div class="email dark-mode">
-      <div class="label">🌙 Dark mode preview (recipient on dark theme)</div>
+    <!-- ============================================================ -->
+    <!-- VARIANT B: Cream / sepia card                                 -->
+    <!-- ============================================================ -->
+    <div class="card">
+      <div class="card-title">Variant B — Cream / soft card</div>
+      <div class="card-sub">
+        Warm off-white background (#faf6f0) instead of pure white.
+        Less harsh against dark backgrounds, more "paper" feel.
+      </div>
       <div class="body">
-        Hello,<br><br>
-        Please find attached the test report for sample QM-2026-04-001.<br>
-        Let me know if you need any clarification.<br><br>
         Best regards,
       </div>
 
-      <!-- v2 — same white-card signature dropped into a dark background.
-           Should remain perfectly readable thanks to the bgcolor="#ffffff" wrapper. -->
-      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff; border-collapse:collapse; border:1px solid #e5e5e5; border-top:3px solid #c8102e; max-width:600px;">
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#faf6f0" style="background-color:#faf6f0; border-collapse:collapse; border:1px solid #d4cfc4; border-top:3px solid #c8102e; max-width:600px;">
+        <tr><td bgcolor="#faf6f0" style="background-color:#faf6f0; padding:16px 20px 14px 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
+            <tr>
+              <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+                <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
+              </td>
+              <td style="padding: 0 0 0 18px; vertical-align: top;">
+                <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
+                <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
+                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;">+971 58 602 2319</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;">+971 2 555 1234</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;">+971 4 444 5678</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr><td colspan="2" style="padding: 12px 0 0 0;">
+              <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #d4cfc4; padding-top: 8px; width:100%;">
+                <tr>
+                  <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+                  <td style="vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
+          </table>
+        </td></tr>
+      </table>
+
+      <div class="pros">PROS — Same readability as white card, but warmer feel. Less stark contrast against dark email backgrounds.</div>
+      <div class="cons">CONS — Still a card. If you don't like the card concept, this won't fix that. Some recipients may notice the slightly off-white color and think it's a rendering bug.</div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT C: Dark card with white logo inset                    -->
+    <!-- ============================================================ -->
+    <div class="card">
+      <div class="card-title">Variant C — Dark card with white logo inset</div>
+      <div class="card-sub">
+        Dark charcoal background with light text. The logo sits in its own
+        white "badge" area so the dark text inside the logo PNG remains readable.
+        Looks intentional and premium in dark mode; looks bold on light email.
+      </div>
+      <div class="body">
+        Best regards,
+      </div>
+
+      <table cellpadding="0" cellspacing="0" border="0" bgcolor="#1f1f1f" style="background-color:#1f1f1f; border-collapse:collapse; border:1px solid #333; border-top:3px solid #c8102e; max-width:600px;">
+        <tr><td bgcolor="#1f1f1f" style="background-color:#1f1f1f; padding:16px 20px 14px 20px;">
+          <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #d4d4d4; line-height: 1.4;">
+            <tr>
+              <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+                <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="background-color:#ffffff;">
+                  <tr><td bgcolor="#ffffff" style="background-color:#ffffff; padding:8px 10px;">
+                    <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="140" style="display:block; border:0;" />
+                  </td></tr>
+                </table>
+              </td>
+              <td style="padding: 0 0 0 18px; vertical-align: top;">
+                <div style="font-size: 15px; font-weight: bold; color: #ffffff;">Seena Suresh</div>
+                <div style="font-size: 12px; color: #aaaaaa; padding-bottom: 8px;">Assistant Lab Manager</div>
+                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #d4d4d4;">
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#d4d4d4;">+971 58 602 2319</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#d4d4d4;">+971 2 555 1234</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#d4d4d4;">+971 4 444 5678</td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#ff5266; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+                  <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#ff5266; text-decoration:none;">www.qualitasme.com</a></td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr><td colspan="2" style="padding: 12px 0 0 0;">
+              <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #444; padding-top: 8px; width:100%;">
+                <tr>
+                  <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+                  <td style="vertical-align: middle;"><span style="font-style: italic; color: #ff5266; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+                </tr>
+              </table>
+            </td></tr>
+            <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #777;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
+          </table>
+        </td></tr>
+      </table>
+
+      <div class="pros">PROS — Looks STUNNING in dark mode (blends in like a real dark card). Premium feel. Logo readable thanks to white inset. Brand red still pops via brighter #ff5266 link color.</div>
+      <div class="cons">CONS — On LIGHT email backgrounds, the dark card stands out as a "dark stamp" — unconventional, may feel too bold for traditional clients. Used by Apple, Spotify, etc. — modern but not classic.</div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- VARIANT D: Transparent / no card (brand-color heavy)           -->
+    <!-- ============================================================ -->
+    <div class="card">
+      <div class="card-title">Variant D — Transparent / no card</div>
+      <div class="card-sub">
+        No background wrapper at all. Relies on brand red and mid-tone greys
+        that have OK contrast on both light and dark backgrounds. Most "blended"
+        look but lowest readability.
+      </div>
+      <div class="body">
+        Best regards,
+      </div>
+
+      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; max-width:600px;">
         <tr>
-          <td bgcolor="#ffffff" style="background-color:#ffffff; padding:16px 20px 14px 20px;">
-            <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #333333; line-height: 1.4;">
-              <tr>
-                <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
-                  <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
-                </td>
-                <td style="padding: 0 0 0 18px; vertical-align: top;">
-                  <div style="font-size: 15px; font-weight: bold; color: #000000;">Seena Suresh</div>
-                  <div style="font-size: 12px; color: #555555; padding-bottom: 8px;">Assistant Lab Manager</div>
-                  <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px; color: #333333;">
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#333333;">+971 58 602 2319</td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#333333;">+971 2 555 1234</td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#333333;">+971 4 444 5678</td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
-                    <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding: 12px 0 0 0;">
-                  <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e5e5e5; padding-top: 8px; width:100%;">
-                    <tr>
-                      <td style="vertical-align: middle; padding-right: 8px;">
-                        <img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" />
-                      </td>
-                      <td style="vertical-align: middle;">
-                        <span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2" style="padding-top: 6px; font-size: 10px; color: #999999;">
-                  ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC
-                </td>
-              </tr>
+          <td style="padding: 0 18px 0 0; vertical-align: top; border-right: 2px solid #c8102e;">
+            <img src="https://www.qualitasme.com/logo.png" alt="Qualitas" width="150" style="display:block; border:0;" />
+          </td>
+          <td style="padding: 0 0 0 18px; vertical-align: top; font-family: Arial, Helvetica, sans-serif; font-size: 12px;">
+            <div style="font-size: 15px; font-weight: bold; color: #c8102e;">Seena Suresh</div>
+            <div style="font-size: 12px; color: #999; padding-bottom: 8px; font-style: italic;">Assistant Lab Manager</div>
+            <table cellpadding="0" cellspacing="0" border="0" style="font-size: 12px;">
+              <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Mob</td><td style="color:#999;">+971 58 602 2319</td></tr>
+              <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Abu Dhabi</td><td style="color:#999;">+971 2 555 1234</td></tr>
+              <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Dubai</td><td style="color:#999;">+971 4 444 5678</td></tr>
+              <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Email</td><td><a href="#" style="color:#c8102e; text-decoration:none;">labmanager.auh@qualitasme.com</a></td></tr>
+              <tr><td style="padding:1px 10px 1px 0; color:#888; white-space:nowrap;">Web</td><td><a href="#" style="color:#c8102e; text-decoration:none;">www.qualitasme.com</a></td></tr>
             </table>
           </td>
         </tr>
+        <tr><td colspan="2" style="padding: 12px 0 0 0;">
+          <table cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #555; padding-top: 8px; width:100%;">
+            <tr>
+              <td style="vertical-align: middle; padding-right: 8px;"><img src="https://raw.githubusercontent.com/itqualitasme-lgtm/mail-sign/main/common/uae-flag.gif" alt="UAE" width="28" style="vertical-align:middle;" /></td>
+              <td style="vertical-align: middle;"><span style="font-style: italic; color: #c8102e; font-size: 11px;">Proudly standing with the UAE — our home of growth, resilience and unity.</span></td>
+            </tr>
+          </table>
+        </td></tr>
+        <tr><td colspan="2" style="padding-top: 6px; font-size: 10px; color: #888;">ISO/IEC 17025:2017 accredited&nbsp;&middot;&nbsp;ENAS&nbsp;|&nbsp;EIAC</td></tr>
       </table>
+
+      <div class="pros">PROS — Blends into ANY background. No "card" feel. Brand red dominant.</div>
+      <div class="cons">CONS — Logo still has the dark text problem (Arabic + tagline disappears on dark). Mid-grey body text is HARD to read on both white AND dark backgrounds. Loses information hierarchy. Looks washed out.</div>
     </div>
 
-    <p class="hint">
-      With the white-card wrapper, the signature stays readable on a dark
-      background. The card looks like a business card pinned to the email,
-      independent of the recipient's theme. This approach works in ~95% of
-      email clients (the main exception is Apple Mail iOS, which inverts
-      everything aggressively — but inverted, the white card becomes a dark
-      card with light text, so it's still readable, just inverted).
+    <p class="intro" style="margin-top: 30px; padding: 16px; border-left: 3px solid #c8102e; background: #2a2020;">
+      <strong style="color: #fff;">My recommendation:</strong>
+      Variant <strong style="color:#fff;">C (dark card)</strong> if you want it to look beautiful in dark mode and don't mind the "dark stamp" look on light emails. Variant <strong style="color:#fff;">A (white card)</strong> if you want maximum compatibility and a traditional professional look. Variants B and D are compromises that probably aren't worth pursuing.
+      <br><br>
+      Reply with <strong style="color:#fff;">"A"</strong>, <strong style="color:#fff;">"B"</strong>, <strong style="color:#fff;">"C"</strong>, or <strong style="color:#fff;">"D"</strong> and I'll lock that in as the final Qualitas template and push it to the repo.
     </p>
   </div>
 </body>
