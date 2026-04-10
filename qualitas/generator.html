@@ -28,17 +28,19 @@
     button.danger { border-color: #999; color: #666; }
     button.danger:hover { background: #f5f5f5; color: #c8102e; border-color: #c8102e; }
     button.tiny { font-size: 11px; padding: 4px 8px; margin: 0 2px; }
-    table { width: 100%; border-collapse: collapse; font-size: 12px; }
-    th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; }
-    th { background: #fafafa; font-weight: 600; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; }
-    tr:hover td { background: #fafafa; }
-    tr.selected td { background: #fef0f2; }
+    /* Scope all UI table styles to the staff list only — DO NOT use bare 'table' or 'td'
+       selectors here, otherwise they leak into the embedded signature preview tables. */
+    #users_table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    #users_table th, #users_table td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; }
+    #users_table th { background: #fafafa; font-weight: 600; color: #555; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; }
+    #users_table tr:hover td { background: #fafafa; }
+    #users_table tr.selected td { background: #fef0f2; }
     .actions-cell { white-space: nowrap; }
     .empty-state { text-align: center; color: #999; padding: 30px 20px; font-size: 13px; }
     /* Incomplete row — missing name, designation, or mobile */
-    tr.incomplete td { background: #fff5f5; opacity: 0.55; }
-    tr.incomplete:hover td { opacity: 0.85; background: #ffe8e8; }
-    tr.incomplete.selected td { opacity: 1; background: #fde0e0; }
+    #users_table tr.incomplete td { background: #fff5f5; opacity: 0.55; }
+    #users_table tr.incomplete:hover td { opacity: 0.85; background: #ffe8e8; }
+    #users_table tr.incomplete.selected td { opacity: 1; background: #fde0e0; }
     .missing-badge {
       display: inline-block; font-size: 10px; padding: 1px 6px; margin-left: 6px;
       border-radius: 3px; background: #ffe5e5; color: #c8102e; border: 1px solid #f5c0c0;
